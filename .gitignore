@@ -1,0 +1,11 @@
+*.class
+*.jar
+target/
+build/
+out/
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
