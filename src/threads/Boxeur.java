@@ -49,10 +49,13 @@ public class Boxeur extends Thread {
 				
 				//vérifier si l'adversaire n'est déja KO
 				if(advers.energie>0) {
+					if(force > advers.energie)
+						advers.energie = 0;
+					else
 					advers.energie = advers.energie-force;
 				
 					//affiche info coup
-					System.out.println(this.nom + "a donne un coup à " + advers.nom + "avec une vitesse =" + vitesse + "et une force =" +force+"Energie de l'advesaire"+ advers.nom+"est = "+advers.energie);
+					System.out.println(this.nom + "a donne un coup à " + advers.nom + "  avec une vitesse =" + vitesse + "  et une force =  " +force+"  Energie de l'advesaire  "+ advers.nom+"  est = "+advers.energie);
 				}
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block

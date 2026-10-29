@@ -2,7 +2,7 @@ package application;
 import threads.Boxeur;
 public class Combat {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		
 		String msg;
 		// Creation des deux objets Boxeur
@@ -17,6 +17,9 @@ public class Combat {
 		b1.start();
 		b2.start();
 		
+		//synchronisation sur terminaison
+		b1.join();
+		b2.join();
 		
 		System.out.println("=========Résultat Combat==============");
 		System.out.println(b1.getNom()+ "a pour energie:"+b1.getEnergie());
@@ -25,13 +28,12 @@ public class Combat {
 		
 		if(b1.getEnergie()>	b2.getEnergie())
 		
-		{
-			msg = b1.getNom()+"est Gagnant !!!!";
-		}
-		else if(b1.getEnergie()< b2.getEnergie()) 
+		{msg = b1.getNom()+"est Gagnant !!!!";}
+		
+		else if(b1.getEnergie() < b2.getEnergie()) 
+			
 		{msg = b2.getNom()+"est Gagnant !!!!";}
-		else 
-			msg = "EGALITE!!!";
+		else msg = "EGALITE!!!";
 		System.out.println(msg);
 	}
 
